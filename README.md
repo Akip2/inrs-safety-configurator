@@ -1,0 +1,1 @@
+# inrs-safety-configurator
