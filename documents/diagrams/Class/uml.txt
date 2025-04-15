@@ -1,0 +1,57 @@
+@startuml
+left to right direction
+
+package "Objets Visuels" {
+    abstract class VisualObject
+    abstract class Bordure extends VisualObject {
+        - sens
+        - longueur
+    }
+
+    class Grille extends Bordure
+    abstract class Ouverture extends Bordure
+    class Scrutateur extends Ouverture
+    class Laser extends Ouverture
+    class Simple extends Ouverture
+
+    class ZoneCarrée extends VisualObject {
+        - largeur
+        - longueur
+    }
+
+    class Robot extends VisualObject {
+        - largeur
+        - longueur
+    }
+}
+
+package "Gestion" {
+    class Gestionnaire {
+        + creerTache()
+        + modifierTache(tache)
+        + supprimerTache(tache)
+    }
+
+    class Tache {
+        - nom
+        - description
+    }
+}
+
+package "Zones Logiques" {
+    class EVP
+    class EspaceRestreint
+}
+
+Gestionnaire --> Tache : - taches
+Gestionnaire --> Robot : - robot
+Gestionnaire --> EVP : - evp
+Gestionnaire --> EspaceRestreint : - espaceRestrient
+
+Tache --> Ouverture : - ouverture
+Ouverture --> Grille : - grille
+Bordure --> Bordure : - adjacents
+EVP --> Bordure : - bordures
+EspaceRestreint --> ZoneCarrée : - sousZones
+
+@enduml
