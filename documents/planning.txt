@@ -1,0 +1,41 @@
+SEMAINE 1 :
+- Conception
+- Prototype d'interface de la fenêtre principale
+- Prototype d'interface de la fenêtre de conception
+
+SEMAINE 2 :
+- Fenêtre conception :
+	* Dessin du robot
+	* Dessin de la zone restreinte
+	* Zoom / Dézoom
+	* Déplacement dans la fenêtre
+
+SEMAINE 3 :
+- Génération l'EVP :
+	* Automatique
+	* Manuelle ensuite
+
+SEMAINE 4 :
+- Création d'une tâche 
+- Création d'ouverture
+- Affichage de la liste des taches et ouvertures (fenêtre principale)
+
+SEMAINE 5 :
+- Fenêtre risque :
+	* Suite de questions pour l'identification des risques
+
+- Affichage de la liste des risques pour chaque ouverture (fenêtre principale)
+- Modification d'une tache
+
+SEMAINE 6 : 
+- Arbre de décision de réduction des risques
+- Affichage de la liste des moyens de préventions pour chaque ouverture
+
+
+SEMAINE 7 :
+- Sauvegarde du projet en fichier JSON
+- Import d'un projet sauvegardé en fichier JSON
+- Premier déploiement de l'application
+
+SEMAINE 8 :
+- Génération du rapport pdf

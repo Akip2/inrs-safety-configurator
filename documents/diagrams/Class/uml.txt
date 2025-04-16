@@ -1,20 +1,25 @@
 @startuml
+
 left to right direction
 
 package "Objets Visuels" {
-    abstract class VisualObject
+    abstract class VisualObject {
+        - x
+        - y
+    }
     abstract class Bordure extends VisualObject {
         - sens
         - longueur
     }
 
     class Grille extends Bordure
-    abstract class Ouverture extends Bordure
-    class Scrutateur extends Ouverture
+    abstract class Ouverture extends Bordure {
+        + assignerTache(tache)
+    }
     class Laser extends Ouverture
     class Simple extends Ouverture
 
-    class ZoneCarrée extends VisualObject {
+    class Rectangle extends VisualObject {
         - largeur
         - longueur
     }
@@ -25,33 +30,48 @@ package "Objets Visuels" {
     }
 }
 
-package "Gestion" {
     class Gestionnaire {
         + creerTache()
         + modifierTache(tache)
         + supprimerTache(tache)
     }
-
+    
+    interface Risque {
+        + getNom()
+    }
+    class Risque1 implements Risque
+    class Risque2 implements Risque
+    class Risque3 implements Risque
+    
+    class MoyenPrevention {
+        - nom
+    }
+    
     class Tache {
         - nom
         - description
     }
-}
+    
+    package "Zones" {
+        class EVP
+        class EspaceRestreint
+    }
 
-package "Zones Logiques" {
-    class EVP
-    class EspaceRestreint
-}
 
-Gestionnaire --> Tache : - taches
-Gestionnaire --> Robot : - robot
-Gestionnaire --> EVP : - evp
-Gestionnaire --> EspaceRestreint : - espaceRestrient
+Gestionnaire "1" --> "*" Ouverture : - ouvertures
+Gestionnaire "1" --> "1" Robot : - robot
+Gestionnaire "1" --> "1" EVP : - evp
+Gestionnaire "1" --> "1" EspaceRestreint : - espaceRestrient
 
-Tache --> Ouverture : - ouverture
-Ouverture --> Grille : - grille
-Bordure --> Bordure : - adjacents
-EVP --> Bordure : - bordures
-EspaceRestreint --> ZoneCarrée : - sousZones
+Ouverture "1" --> "1..*" Tache : - taches
+Ouverture "*" --> "1" Grille : - grille
+Ouverture "*" --> "*" Risque : - risques
+Bordure "0..2" -> "0..2" Bordure : - adjacents
+EVP "1" --> "*" Bordure : - bordures
+EspaceRestreint "1" --> "*" Rectangle : - sousZones
+
+Risque1 --> "*" MoyenPrevention : preventions
+Risque2 --> "*" MoyenPrevention : preventions
+Risque3 --> "*" MoyenPrevention : preventions
 
 @enduml
