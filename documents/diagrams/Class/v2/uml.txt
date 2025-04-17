@@ -1,0 +1,94 @@
+@startuml
+
+left to right direction
+
+package "Objets Visuels" {
+    abstract class VisualObject {
+        - x
+        - y
+        + {abstract} afficher()
+    }
+    abstract class Segment extends VisualObject {
+        - longueur
+    }
+
+    class Grille extends Segment
+    
+    class Ouverture extends Segment {
+        - hauteur
+        - distanceSol
+        + assignerTache(tache)
+    }
+    
+    class Polygone extends VisualObject
+    
+    class Point extends VisualObject
+
+    class Robot extends VisualObject
+}
+
+    class Gestionnaire {
+        + creerTache()
+        + modifierTache(tache)
+        + supprimerTache(tache)
+    }
+    
+package "Risques" {
+    interface Risque
+    class ChocEcrasement implements Risque {
+        - type
+        - surface
+        - corps
+    }
+    
+    class RisqueAutre implements Risque {
+        - type
+    }
+}
+
+package "Preventions" {
+    interface MoyenPrevention
+    class PFL implements MoyenPrevention
+    class Laser implements MoyenPrevention
+    class Scrutateur implements MoyenPrevention
+    class ProtecteurMobile implements MoyenPrevention
+    
+}
+    
+    class Tache {
+        - nom
+        - description
+        - duree
+        - frequence
+        - type
+    }
+    
+    package "Zones" {
+        class EVP
+        class EspaceRestreint
+    }
+
+
+Gestionnaire "1" --> "*" Ouverture : - ouvertures
+Gestionnaire "1" --> "1" Robot : - robot
+Gestionnaire "1" --> "1" EVP : - evp
+Gestionnaire "1" --> "1" EspaceRestreint : - espaceRestreint
+
+Ouverture "1" --> "1..*" Tache : - taches
+Ouverture "*" --> "1" Grille : - grille
+Ouverture "*" --> "*" Risque : - risques
+
+Segment "*" --> "1" Point : - depart
+Segment "*" --> "1" Point : - fin
+
+
+EVP "1" --> "*" Segment : - contours
+EspaceRestreint "1" --> "*" Polygone : - sousZones
+
+ChocEcrasement "1" --> "*" MoyenPrevention : - preventions
+RisqueAutre "1" --> "*" MoyenPrevention : - preventions
+
+Polygone "1" --> "*" Point : - points
+Robot "1" --> "*" Polygone : - composants
+
+@enduml
