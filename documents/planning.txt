@@ -10,38 +10,35 @@ SEMAINE 2 :
 	* Zoom / Dézoom
 	* Déplacement dans la fenêtre
 
-SEMAINE 3 :
+SEMAINE 3 - 4 :
 - Génération l'EVP :
 	* Automatique
 	* Manuelle ensuite
 
-SEMAINE 4 :
+SEMAINE 5 :
 - Création d'une tâche 
 - Création d'ouverture
 - Affichage de la liste des taches et ouvertures (fenêtre principale)
 
-SEMAINE 5 :
+SEMAINE 6 :
 - Fenêtre risque :
 	* Suite de questions pour l'identification des risques
 
 - Affichage de la liste des risques pour chaque ouverture (fenêtre principale)
 - Modification d'une tache
 
-SEMAINE 6 : 
+SEMAINE 7 : 
 - Arbre de décision de réduction des risques
 - Affichage de la liste des moyens de préventions pour chaque ouverture
 
 
-SEMAINE 7 :
+SEMAINE 8-9 :
 - Sauvegarde du projet en fichier JSON
 - Import d'un projet sauvegardé en fichier JSON
 - Premier déploiement de l'application
 
-SEMAINE 8 :
-- Génération du rapport pdf
-
-SEMAINE 9 :
-- Génération du rapport pdf
-
 SEMAINE 10 :
-- Rédaction du rapport de stage
+- Génération du rapport pdf
+
+SEMAINE 11 :
+- Génération du rapport pdf

@@ -2,8 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import { Layer, Rect, Stage } from "react-konva";
 
 export default function KonvaStage({ containerRef }: { containerRef: React.RefObject<HTMLDivElement> }) {
-    const sceneWidth = 1900;
-    const sceneHeight = 1200;
+    const sceneWidth = 1500;
+    const sceneHeight = 1250;
     
     // State to track current scale and dimensions
     const [stageSize, setStageSize] = useState({

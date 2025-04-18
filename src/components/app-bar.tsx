@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function AppBar(props: {currentPage: string}) {
     return (
-        <div className="bg-black p-2">
+        <div className="bg-black p-4">
             <NavigationMenu>
                 <NavigationMenuList>
                     <NavigationMenuItem>
@@ -46,16 +46,24 @@ export default function AppBar(props: {currentPage: string}) {
                     </NavigationMenuItem>
 
                     <NavigationMenuItem>
-                        <NavigationMenuLink asChild className={props.currentPage === "tasks" ? "bg-gray-700" : ""}>
+                        <NavigationMenuLink asChild className={props.currentPage === "main" ? "selected-page" : ""}>
                             <Link href="/" className={navigationMenuTriggerStyle()}>
+                                Accueil
+                            </Link>
+                        </NavigationMenuLink>
+                    </NavigationMenuItem>
+
+                    <NavigationMenuItem>
+                        <NavigationMenuLink asChild className={props.currentPage === "tasks" ? "selected-page" : ""}>
+                            <Link href="./" className={navigationMenuTriggerStyle()}>
                                 Tâches
                             </Link>
                         </NavigationMenuLink>
                     </NavigationMenuItem>
 
                     <NavigationMenuItem>
-                        <NavigationMenuLink asChild className={props.currentPage === "risks" ? "bg-gray-700" : ""}>
-                            <Link href="/" className={navigationMenuTriggerStyle()}>
+                        <NavigationMenuLink asChild className={props.currentPage === "risks" ? "selected-page" : ""}>
+                            <Link href="./" className={navigationMenuTriggerStyle()}>
                                 Risques
                             </Link>
                         </NavigationMenuLink>
