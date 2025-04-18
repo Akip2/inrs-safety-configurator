@@ -1,9 +1,12 @@
+'use client'
 import { useEffect, useRef, useState } from "react";
 import { Layer, Rect, Stage } from "react-konva";
 
-export default function KonvaStage({ containerRef }: { containerRef: React.RefObject<HTMLDivElement> }) {
+export default function KonvaStage(props : {className?: string}) {
     const sceneWidth = 1500;
     const sceneHeight = 1250;
+
+    const containerRef = useRef<HTMLDivElement>(null!);
     
     // State to track current scale and dimensions
     const [stageSize, setStageSize] = useState({
@@ -16,10 +19,8 @@ export default function KonvaStage({ containerRef }: { containerRef: React.RefOb
     const updateSize = () => {
       if (!containerRef.current) return;
       
-      // Get container width
       const containerWidth = containerRef.current.clientWidth;
       
-      // Calculate scale
       const scale = containerWidth / sceneWidth;
       
       // Update state with new dimensions
@@ -41,22 +42,24 @@ export default function KonvaStage({ containerRef }: { containerRef: React.RefOb
     }, []);
     
     return (
-        <Stage 
-        width={stageSize.width} 
-        height={stageSize.height}
-        scaleX={stageSize.scale}
-        scaleY={stageSize.scale}
-        className="w-full h-full">
-            <Layer>
-                <Rect
-                    x={50}
-                    y={120}
-                    width={100}
-                    height={100}
-                    fill="blue"
-                    draggable={true}
-                />
-            </Layer>
-        </Stage>
+        <div ref={containerRef} className={"h-fit bg-gray-50 rounded-2xl"+" "+props.className}>
+            <Stage 
+            width={stageSize.width} 
+            height={stageSize.height}
+            scaleX={stageSize.scale}
+            scaleY={stageSize.scale}
+            className="w-full h-full">
+                <Layer>
+                    <Rect
+                        x={50}
+                        y={120}
+                        width={100}
+                        height={100}
+                        fill="blue"
+                        draggable={true}
+                    />
+                </Layer>
+            </Stage>
+        </div>
     );
 }
