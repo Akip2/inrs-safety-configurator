@@ -42,7 +42,7 @@ export default function KonvaStage(props : {className?: string}) {
     }, []);
     
     return (
-        <div ref={containerRef} className={"h-fit bg-gray-50 rounded-2xl"+" "+props.className}>
+        <div ref={containerRef} className={"h-fit bg-gray-200 rounded-2xl border-2 border-black shadow-2xs"+" "+props.className}>
             <Stage 
             width={stageSize.width} 
             height={stageSize.height}

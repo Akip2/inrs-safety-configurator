@@ -1,14 +1,11 @@
-'use client'
+'use'
 import AppBar from "@/components/app-bar";
 import DataContainer from "@/components/data-container";
 import KonvaStage from "@/components/konva-stage";
-import { useRef } from "react";
 
 export default function Home() {  
-  const containerRef = useRef<HTMLDivElement>(null!);
-
   return (
-    <div className="h-[100vh] flex flex-col bg-gray-900">
+    <div className="h-[100vh] flex flex-col bg-gray-50">
       <AppBar currentPage="main"></AppBar>
 
       <div className="flex flex-col h-full justify-center">

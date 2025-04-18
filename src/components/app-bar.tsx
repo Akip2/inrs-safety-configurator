@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function AppBar(props: {currentPage: string}) {
     return (
-        <div className="bg-black p-4">
+        <div className="bg-gray-500 p-4">
             <NavigationMenu>
                 <NavigationMenuList>
                     <NavigationMenuItem>
@@ -14,7 +14,7 @@ export default function AppBar(props: {currentPage: string}) {
                                 <li>
                                     <NavigationMenuLink asChild>
                                         <Link
-                                            href="/"
+                                            href="/conception"
                                             className="menu-option"
                                         >
                                             Nouveau
