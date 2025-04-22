@@ -1,11 +1,10 @@
 SEMAINE 1 :
 - Conception
 - Prototype d'interface de la fenêtre principale
-- Prototype d'interface de la fenêtre de conception
 
 SEMAINE 2 :
 - Fenêtre conception :
-	* Dessin du robot
+	* Outil de dessin de polygones
 	* Dessin de la zone restreinte
 	* Zoom / Dézoom
 	* Déplacement dans la fenêtre
@@ -37,8 +36,5 @@ SEMAINE 8-9 :
 - Import d'un projet sauvegardé en fichier JSON
 - Premier déploiement de l'application
 
-SEMAINE 10 :
-- Génération du rapport pdf
-
-SEMAINE 11 :
+SEMAINE 10-11 :
 - Génération du rapport pdf

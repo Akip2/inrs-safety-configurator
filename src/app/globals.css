@@ -129,5 +129,9 @@
 }
 
 .selected-page {
-  @apply hover:bg-gray-400 bg-gray-400
+  @apply hover:bg-blue-500 bg-blue-500 text-white text-xl
+}
+
+.page-option {
+  @apply bg-blue-700 hover:bg-blue-600 text-white text-xl
 }

@@ -4,11 +4,11 @@ import Link from "next/link";
 
 export default function AppBar(props: {currentPage: string}) {
     return (
-        <div className="bg-gray-500 p-4">
+        <div className="bg-blue-700 p-4">
             <NavigationMenu>
                 <NavigationMenuList>
                     <NavigationMenuItem>
-                        <NavigationMenuTrigger>Fichier</NavigationMenuTrigger>
+                        <NavigationMenuTrigger className="page-option">Fichier</NavigationMenuTrigger>
                         <NavigationMenuContent>
                             <ul className="w-fit">
                                 <li>
@@ -46,7 +46,7 @@ export default function AppBar(props: {currentPage: string}) {
                     </NavigationMenuItem>
 
                     <NavigationMenuItem>
-                        <NavigationMenuLink asChild className={props.currentPage === "main" ? "selected-page" : ""}>
+                        <NavigationMenuLink asChild className={props.currentPage === "main" ? "selected-page" : "page-option"}>
                             <Link href="/" className={navigationMenuTriggerStyle()}>
                                 Accueil
                             </Link>
@@ -54,7 +54,7 @@ export default function AppBar(props: {currentPage: string}) {
                     </NavigationMenuItem>
 
                     <NavigationMenuItem>
-                        <NavigationMenuLink asChild className={props.currentPage === "tasks" ? "selected-page" : ""}>
+                        <NavigationMenuLink asChild className={props.currentPage === "tasks" ? "selected-page" : "page-option"}>
                             <Link href="./" className={navigationMenuTriggerStyle()}>
                                 Tâches
                             </Link>
@@ -62,7 +62,7 @@ export default function AppBar(props: {currentPage: string}) {
                     </NavigationMenuItem>
 
                     <NavigationMenuItem>
-                        <NavigationMenuLink asChild className={props.currentPage === "risks" ? "selected-page" : ""}>
+                        <NavigationMenuLink asChild className={props.currentPage === "risks" ? "selected-page" : "page-option"}>
                             <Link href="./" className={navigationMenuTriggerStyle()}>
                                 Risques
                             </Link>
